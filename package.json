@@ -1,0 +1,21 @@
+{
+  "name": "inslumin",
+  "version": "1.0.0",
+  "description": "Control a light based on insulin readings from a CGM.",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "scan": "ts-node src/Lights/scan.ts"
+  },
+  "author": "Randall Knutson",
+  "license": "MIT",
+  "dependencies": {
+    "@abandonware/noble": "^1.9.2-14"
+  },
+  "devDependencies": {
+    "@tsconfig/node12": "^1.0.7",
+    "@types/node": "^15.6.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  }
+}
