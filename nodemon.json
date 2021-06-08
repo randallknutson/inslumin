@@ -1,12 +1,16 @@
 {
+  "restartable": "rs",
   "ignore": [
+    ".git",
     "**/*.test.ts",
     "**/*.spec.ts",
-    "node_modules",
+    "node_modules"
   ],
   "watch": [
     "src"
   ],
-  "exec": "tsc -p tsconfig.json && node src/",
+  "execMap": {
+    "ts": "node -r ts-node/register"
+  },
   "ext": "ts"
 }

@@ -1,7 +1,7 @@
 export interface ICGMValue {
   value: number;
   trend: number;
-  wt: number;
+  time: number;
 }
 
 export interface ICGMConfig {
@@ -18,5 +18,5 @@ export abstract class ICGM<Config> {
   };
   async connect(): Promise<void> { };
   async disconnect(): Promise<void> { };
-  async getCurrent(): Promise<ICGMValue> { return { value: 0, trend: 0, wt: 0 } };
+  async getCurrent(): Promise<ICGMValue> { return { value: 0, trend: 0, time: 0 } };
 }

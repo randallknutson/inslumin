@@ -1,9 +1,5 @@
+import { Dexcom as RTDexcom } from "rtdexcom";
 import { ICGM, ICGMConfig } from "./CGM";
-
-class RTDexcom {
-  constructor(username: string, password: string, ous: boolean) { }
-  async createSession() { }
-};
 
 interface IDexcomConfig extends ICGMConfig {
   type: string,
@@ -21,5 +17,14 @@ export class Dexcom extends ICGM<IDexcomConfig> {
 
   async connect() {
     await this.dexcom.createSession();
+  }
+
+  async getCurrent() {
+    const result = await this.dexcom.getCurrentGlucoseReading();
+    return {
+      value: result.value,
+      trend: result.trend as number,
+      time: result.time.getTime(),
+    }
   }
 }

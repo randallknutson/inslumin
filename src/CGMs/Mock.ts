@@ -37,14 +37,14 @@ export class Mock extends ICGM<IMockConfig> {
   }
 
   async getCurrent() {
+    if (at > 0) throw new Error('throw');
     if (at > 15) {
       at = 0;
     }
-    console.log('getCurrent', values[at]);
     return {
       value: values[at++],
       trend: 0,
-      wt: Date.now(),
+      time: Date.now(),
     }
   }
 }
